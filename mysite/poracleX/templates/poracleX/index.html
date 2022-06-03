@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"></html>
+<html>
+<head>
+<title>Non-secret agents in the virtual world</title>
+</head>
+<body>
+
+<!-- Flaw 2: A03:2021 – Injection-->
+<p>See agents name:
+<a href='?id="Secret"'>Secret</a>
+<a href='?id="Gecko"'>Gecko</a>
+</p>
+<p></p>
+<p>
+<!--Flaw 3: A10:2021 – Server-Side Request Forgery (SSRF)-->
+See what can be done to prevent SSRF attack:
+<a href='ssrf/?url="https://en.wikipedia.org/wiki/Server-side_request_forgery"'>SSRF</a>
+</p>
+<p></p>
+
+<!-- Flaw 3: A04:2021 – Insecure design
+                    Questions and answers cannot be used in identification -->
+<!-- Flaw 1: A01:2021 - Broken access control:
+                    CRSF. Django requires this by default, so it is written here. The flaw is implemented in server side handling.-->
+As one of us, here you can find out the password of the day by just answering these questions.
+<form action="identification/" method="POST">
+    {% csrf_token %}
+    Number of James?
+    <input type="text" name="bond"/><br>
+    Angles in the Pentagon?
+    <input type="text" name="pentagon"/><br>
+    Your phone number?
+    <input type="text" name="phone"/><br>
+    <input type="submit"/>
+    </form>
+
+</body>
+</html>

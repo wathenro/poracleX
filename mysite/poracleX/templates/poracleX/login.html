@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <!-- Flaw 5: A05:2021 - Security Misconfiguration-->
+    <form method="POST">
+        {% csrf_token %}
+        Username
+        <input type="text" name="username"/><br>
+        Password
+        <input type="text" name="password"/><br>
+        <input type="submit"/>
+    </form>
+    </body>
+</html>
